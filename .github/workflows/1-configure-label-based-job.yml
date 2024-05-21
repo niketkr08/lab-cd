@@ -68,6 +68,8 @@ jobs:
       # Update README to close <details id=1>
       # and open <details id=2>
       # and set STEP to '2'
+      - name: Set executable permissions
+        run: chmod a+x .github/script/check-file.sh
       - name: Update to step 2
         run: ./.github/script/update-step.sh
         env:
