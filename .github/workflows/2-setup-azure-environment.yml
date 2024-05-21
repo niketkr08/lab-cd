@@ -76,7 +76,8 @@ jobs:
         run: gh pr merge --squash staging-workflow
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Set executable permissions
+        run: chmod a+x .github/script/create-workflow-pr.sh
       # Create pull request from azure-configuration branch to set up next step
       - name: Create azure-configuration pull request 
         run: ./.github/script/create-workflow-pr.sh
@@ -88,6 +89,8 @@ jobs:
       # Update README to close <details id=2>
       # and open <details id=3>
       # and set STEP to '3'
+      - name: Set executable permissions
+        run: chmod a+x .github/script/update-step.sh
       - name: Update to step 3
         run: ./.github/script/update-step.sh
         env:
