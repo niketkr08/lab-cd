@@ -50,7 +50,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Let's get all the branches
-
+      - name: Set executable permissions
+        run: chmod a+x .github/script/update-step.sh
       # Update README to comment out step0
       # and open <details id=1>
       # and set STEP to '1'
@@ -60,7 +61,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FROM_STEP: 0
           TO_STEP: 1
-
+      - name: Set executable permission
+        run: chmod a+x .github/script/initialize-repository.sh
       # This is required to establish a related history for branches
       # after being created from the template repository
       - name: Initialize repository
