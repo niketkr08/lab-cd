@@ -63,6 +63,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Create pull request from staging-test to set up next step
+      - name: Set executable permissions
+        run: chmod a+x .github/script/create-workflow-pr.sh
+        
       - name: Create staging-test pull request 
         run: .github/script/create-workflow-pr.sh --pull-first
         env:
@@ -73,6 +76,8 @@ jobs:
       # Update README to close <details id=3>
       # and open <details id=4>
       # and set STEP to '4'
+      - name: Set executable permissions
+        run: chmod a+x .github/script/update-step.sh
       - name: Update to step 4
         run: ./.github/script/update-step.sh
         env:
